@@ -1,0 +1,20 @@
+<div class="navbar-fixed">
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Logo</a>
+    <ul id="nav-mobile" class="left">
+      {{#link-to "index" tagName='li'}}<a><i class="tiny material-icons">home</i></a>{{/link-to}}
+    </ul>
+
+    <ul id="nav-mobile" class="right">
+      {{#link-to "about" tagName='li'}}<a><i class="material-icons">grade</i></a>{{/link-to}}
+    </ul>
+
+    <ul id="nav-mobile" class="right">
+      {{#link-to "calc" tagName='li'}}<a><i class="material-icons">grade</i></a>{{/link-to}}
+    </ul>
+  </div>
+</nav>
+</div>
+
+{{liquid-outlet}}

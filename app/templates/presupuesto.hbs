@@ -1,0 +1,51 @@
+<div class="container">
+	<h2>Presupuesto: </h2>
+	<h3>{{model.titulo}}</h3>
+	<h4>Cliente: {{model.cliente}}</h4>
+
+	<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th>Concepto</th>
+				<th>Horas</th>
+				<th>Precio Unitario</th>
+				<th>Tipo</th>
+				<th>Subtotal</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{{#each model.items as |item|}}
+				<tr>
+					<td>{{item.concepto}}</td>
+					<td>{{item.horas}}</td>
+					<td>{{format-currency item.tipo.precioPorHora}}</td>
+					<td>{{item.tipo.descripcion}}</td>
+					<td>{{format-money item.subtotal}}</td>
+				</tr>
+			{{/each}}
+			<tr><td colspan="5"></td></tr>
+			<tr>
+				<td colspan="4">Subtotal Costos</td>
+				<td><code>{{format-money precioTotal}}</code></td>
+			</tr>
+			<tr><td colspan="5"></td></tr>
+			<tr>
+				<td colspan="5">Ganancia {{input value=ganancia size=3}} % <i>({{format-money importe_ganancia}})</i></td>
+			</tr>
+			<tr>
+				<td colspan="4">Subtotal Neto</td>
+				<td><code>{{format-money precioMasGanancia}}</code></td>
+			</tr>
+			<tr>
+				<td colspan="5">IVA 21% {{input type="checkbox" checked=iva }} <i>({{format-money importe_iva}})</i></td>
+			</tr>
+			<tr><td colspan="5"></td></tr>
+			<tr>
+				<td colspan="4">Total</td>
+				<td><code>{{format-money precioFinal}}</code></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+{{outlet}}
