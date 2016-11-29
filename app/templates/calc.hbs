@@ -3,33 +3,63 @@
 <div class="bar bar-header bar-light">
   <h1 class="title">Calculadora</h1>
 </div>
-
-<div class="content">
-  <div style="height: 200px"></div>
-
-  <p>Valor de la hora: $ {{input value=valhora size=3}}</p>
-  <p>Cantidad de horas: $ {{input value=canthoras size=3}}</p>
-
-  {{#if subtotal1}}
-  	<p><b>Subtotal:</b> {{format-currency subtotal1}}</p>
-  {{else}}
-  	<p><b>Subtotal:</b> {{format-currency 0}}</p>
-  {{/if}}
-
-  <h4>Costos</h4>
-  <p>Ganancia: {{input value=ganancia size=3}} %
-  	{{#if importe_ganancia}}
-  		<b><i>({{format-currency importe_ganancia}})</i></b>
-  	{{/if}}
-  </p>
-
-  <h4>Impuestos</h4>
-  <p>IVA 21% {{input type="checkbox" checked=iva }}</p>
-
-  {{#if total}}
-  	<p><b>Total + Impuestos: </b> {{format-currency total}}</p>
-  {{ else }}
-  	<p><b>Total + Impuestos: </b> {{format-currency 0}}</p>
-  {{/if}}
+<div style="height: 50px;"></div>
+<div class="container">
+	
+	<div class="teal lighten-4 row">
+		<div class="input-field col l3">
+			{{input value=valhora size=3}}
+			<label for="valhora">Valor de la hora:</label>
+		</div>
+		<div class="col l9"></div>
+	</div>
+	
+	<div class="teal lighten-4 row">
+		<div class="input-field col l3">
+			{{input value=canthoras size=3}}
+			<label for="canthoras">Cantidad de horas:</label>
+		</div>
+		<div class="col l9"></div>
+	</div>
+	
+	<div class="row">
+		<div class="amber col l2">Subtotal</div>
+		<div class="amber lighten-4 col l2">
+			{{#if subtotal1}}
+				{{format-currency subtotal1}}
+			{{else}}
+				{{format-currency 0}}
+			{{/if}}
+		</div>
+		<div class="col l4"></div>
+		<div class="col l4"></div>
+	</div>
+	
+	<div class="teal lighten-4 row">
+		<div class="input-field col l6">
+			{{input value=ganancia size=3}}
+			<label for="ganancia">Ganancia (%)</label>
+			{{#if importe_ganancia}}
+				<b><i>({{format-currency importe_ganancia}})</i></b>
+			{{/if}}
+		</div>
+		<div class="teal lighten-4 input-field col l6">
+			{{input type="checkbox" checked=iva }}
+			<label for="iva">IVA 21%</label>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="amber col l2">Total</div>
+		<div class="amber lighten-4 col l2">
+			{{#if total}}
+				{{format-currency total}}
+			{{ else }}
+				{{format-currency 0}}
+			{{/if}}
+		</div>
+		<div class="col l4"></div>
+		<div class="col l4"></div>
+	</div>
 
 </div>
